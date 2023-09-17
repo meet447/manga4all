@@ -1,0 +1,401 @@
+    @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300&display=swap");
+    * {
+    margin: 0;
+    }
+
+    body {
+    font-family: "Poppins", sans-serif;
+    color: white;
+    }
+
+    .navbar {
+    width: 100%;
+    height: 80px;
+    background-color: #151515;
+    }
+
+    .navbar-container {
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    height: 100%;
+    color: white;
+    }
+
+    .logo-container {
+    flex: 1;
+    }
+
+    .logo {
+    font-family: "Bebas Neue", cursive;
+    font-size: 35px;
+    letter-spacing: 5px;
+    color: #6115ad;
+    }
+
+    .menu-container {
+    flex: 6;
+    }
+
+    .menu-list {
+    display: flex;
+    list-style: none;
+    }
+
+    .menu-items {
+    margin-right: 50px;
+    }
+
+    .profile-text-container {
+    margin: 0 20px;
+    }
+    .toggle {
+    width: 40px;
+    height: 20px;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    }
+
+    .toggle-icon {
+    color: goldenrod;
+    font-size: 12px;
+    }
+
+    .toggle-ball {
+    width: 18px;
+    height: 18px;
+    background-color: black;
+    position: absolute;
+    right: 1px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 1s ease all;
+    }
+
+    .profile-pic {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    }
+
+    .profile-container {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    }
+
+    .sidebar {
+    width: 50px;
+    height: 100%;
+    background-color: #151515;
+    position: fixed;
+    top: 0;
+    padding-top: 70px; /* Adjusted to push content below the fixed sidebar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1; /* Added to ensure the sidebar appears above the content */
+    }
+
+    .left-menu-icon {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 40px;
+    cursor: pointer;
+    }
+
+    .container {
+        min-height: calc(100vh - 50px);
+        background-color: #101820ff;
+    }  
+
+    .content-container {
+    margin-left: 70px;
+    }
+
+    .featured-content {
+    height: 60vh;
+    padding: 50px;
+    }
+
+    .featured-title {
+    font-family: "Bebas Neue", cursive;
+    font-size: 70px;
+    color: white;
+    }
+    .featured-author {
+    font-weight: 600;
+    }
+
+    .featured-text {
+    width: 500px;
+    color: lightgrey;
+    margin: 30px 0;
+    }
+
+    .featured-hashtags {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    }
+
+    .hashs {
+    margin: -10px 20px 30px 0;
+    font-weight: 700;
+    font-size: 14px;
+    color: lightgrey;
+    }
+
+
+    .featured-button {
+    background-color: #6115ad;
+    color: white;
+    align-items: center;
+    font-size: 18px;
+    padding: 15px 25px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    }
+
+    .save-later {
+    font-size: 25px;
+    padding-left: 25px;
+    }
+
+    .book-list-container {
+    padding: 20px 50px;
+    }
+    .book-list-wrapper{
+    position: relative;
+    overflow: hidden;
+    }
+
+    .book-list{
+    display: flex;
+    align-items: center;
+    height: 250px;
+    transform: translateX(0);
+    transition: all 1s ease-in-out;
+    }
+
+    .book-list-item {
+    
+    margin-right: 30px;
+    position: relative;
+    }
+
+    .book-list-item:hover .book-list-item-img {
+    transform: scale(1.2);
+    margin: 0 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    opacity: 0.3;
+    
+    }
+    .book-list-item:hover .book-list-item-title,
+    .book-list-item:hover .book-list-item-desc,
+    .book-list-item:hover .button-class {
+    opacity: 1;
+    }
+
+    .book-list-item-img {
+    transition: all 1s ease-in-out;
+    width: 350px;
+    height: 300px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 30px;
+    
+    }
+
+    .book-list-item-title {
+    padding: 0 10px;
+    font-size: 20px;
+    font-weight: 500;
+    position: absolute;
+    color: grey;
+    top: 10%;
+    left: 30px;
+    opacity: 0;
+    transition: 1s all ease-in-out;
+    }
+
+    .book-list-item-desc {
+    padding: 0 10px;
+    font-size: 11px;
+    font-weight: 500;
+    position: absolute;
+    color: rgb(160, 160, 160);
+    top: 30%;
+    left: 30px;
+    width: 200px;
+    opacity: 0;
+    transition: 1s all ease-in-out;
+    }
+
+
+    .button-class {
+    padding: 0 10px;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    align-items: center;
+    opacity: 0;
+    transition: 1s all ease-in-out;
+    }
+
+    .book-list-item-button {
+    
+    background-color: #6115ad;
+    color: white;
+    align-items: center;
+    font-size: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    
+    }
+
+    .insider {
+    font-size: 20 px;
+    padding-left: 25px;
+    color: #6115ad;
+    cursor: pointer;
+    
+    }
+
+
+    .arrow {
+    font-size: 90px;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    color: lightslategray;
+    opacity: .5;
+    cursor: pointer;
+    }
+
+
+    .navbar-container.active {
+    background-color: white;
+    color: #151515;
+    }
+    .sidebar.active {
+    background-color: white;
+    }
+
+    .left-menu-icon.active {
+    color: #151515;
+    }
+
+    .toggle.active {
+    background-color: #151515;
+    }
+
+    .toggle-ball.active {
+    background-color: white;
+    transform: translateX(-20px);
+    }
+
+
+    .container.active {
+    background-color: white;
+    }
+
+    .book-list-title.active{
+    color: #151515;
+    }
+
+    /* Default styles for larger screens */
+    .manga-item-container {
+        margin-left: 70px; /* Adjust this value to match the width of your sidebar */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; /* Distribute items with space between them */
+        gap: 30px; /* Adjust the gap to control the spacing */
+    }
+
+    .manga-item-container-details {
+        margin-left: 70px; /* Adjust this value to match the width of your sidebar */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; /* Distribute items with space between them */
+        gap: 30px; /* Adjust the gap to control the spacing */
+    }
+
+    .manga-item {
+        width: 280px; /* Calculate width to accommodate padding and borders */
+        height: 650px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        box-sizing: border-box;
+        text-align: center; /* Center-align text within each manga item */
+    }
+
+    .manga-item-image img {
+        width: 250px; /* Fixed width */
+        height: 350px; /* Fixed height */
+        object-fit: cover;
+    }
+
+    /* Read button styles... */
+    .read-button {
+        display: inline-block;
+        width: 230px;
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    .read-button-details {
+        display: inline-block;
+        width: 1600px;
+        padding: 13px 30px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 35px;
+        transition: background-color 0.3s;
+    }
+
+    .read-button:hover {
+        background-color: #0056b3;
+    }
+
+    /* Hide menu-container on smaller screens */
+    @media only screen and (max-width: 940px) {
+        .menu-container {
+            display: none;
+        }
+
+        /* Adjust styles for smaller screens */
+        .manga-item {
+            width: calc(33.33% - 20px); /* Three items per row with gap in between */
+        }
+    }
+
+    /* Additional media queries for different screen sizes */
+    @media only screen and (max-width: 768px) {
+        .manga-item {
+            width: calc(50% - 20px); /* Two items per row with gap in between */
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        .manga-item {
+            width: 100%; /* One item per row, full width */
+        }
+    }

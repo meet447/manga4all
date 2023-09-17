@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <title>Manga-API</title>
+    <meta name="robots" content="noindex">
+    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+    <link rel="mask-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111">
+    <link rel="canonical" href="https://codepen.io/tell-a-tale/pen/oNeOLLr">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+    <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeConsoleRunner-6d8bf8b4b479137260842506acbb12717dace0823c023e08b96360e60b0840d9.js"></script>
+    <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-44fe83e49b63affec96918c9af88c0d80b209a862cf87ac46bc933074b8c557d.js"></script>
+    <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRuntimeErrors-4f205f2c14e769b448bcf477de2938c681660d5038bc464e3700256713ebe261.js"></script>
+</head>
+<body>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <title>Blotts</title>
+
+    <div class="navbar">
+        <div class="navbar-container">
+            <div class="logo-container"><h1 class="logo">Manga4all</h1></div>
+            <div class="menu-container">
+                <ul class="menu-list">
+                    <li class="menu-items">New</li>
+                    <li class="menu-items">Subgenre</li>
+                    <li class="menu-items">My Books</li>
+                    <li class="menu-items">Browse</li>
+                    <li class="menu-items">Community</li>
+                </ul>
+            </div>
+            <div class="profile-container">
+                <img class="profile-pic" src="https://images.unsplash.com/photo-1489939078242-0a1dc4a08f06?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1170&amp;q=80">
+                <div class="profile-text-container">
+                    <i class="fas fa-caret-down"></i>
+                </div>
+                <div class="toggle">
+                    <i class="fas fa-moon toggle-icon"></i>
+                    <i class="fas fa-sun toggle-icon"></i>
+                    <div class="toggle-ball"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar">
+        <a href="/home"><i class="left-menu-icon fas fa-home"></i></a>
+        <a href="/user-friends"><i class="left-menu-icon fas fa-user-friends"></i></a>
+        <a href="/bookmark"><i class="left-menu-icon fas fa-bookmark"></i></a>
+        <a href="/search"><i class="left-menu-icon fas fa-search"></i></a>
+        <a href="/shopping-cart"><i class="left-menu-icon fas fa-shopping-cart"></i></a>
+    </div>
+    <div class="container">
+        <div class="content-container">
+            <h1 class="book-list-title">Top:</h1>
+            <div class="book-list-wrapper">
+                <div class="book-list">
+                    {% for manga in top.rank %}
+                    <div class="book-list-item">
+                        <a class="book-link" href="/details/{{ manga.slug }}">
+                            <img src="https://meo.comick.pictures/{{ manga.md_covers[0].b2key }}" alt="{{ manga.title }}" class="book-list-item-img">
+                            <span class="book-list-item-title">{{ manga.title }}</span>
+                            <p class="book-list-item-desc">{{ manga.content_rating }}</p>
+                            <div class="button-class">
+                                <button class="book-list-item-button">Read</button>
+                                <i class="insider far fa-bookmark"></i>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                <i class="arrow fas fa-chevron-right "></i>
+            </div>
+        </div>
+        <div class="content-container">
+            <h1 class="book-list-title">Most Views:</h1>
+            <div class="book-list-wrapper">
+                <div class="book-list">
+                    {% for manga in views %}
+                    <div class="book-list-item">
+                        <a class="book-link" href="/details/{{ manga.slug }}">
+                            <img src="https://meo.comick.pictures/{{ manga.md_covers[0].b2key }}" alt="{{ manga.title }}" class="book-list-item-img">
+                            <span class="book-list-item-title">{{ manga.title }}</span>
+                            <p class="book-list-item-desc">{{ manga.desc }}</p>
+                            <div class="button-class">
+                                <button class="book-list-item-button">Read</button>
+                                <i class="insider far fa-bookmark"></i>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                <i class="arrow fas fa-chevron-right "></i>
+            </div>
+        </div>
+
+        <div class="content-container">
+            <h1 class="book-list-title">Hot:</h1>
+        </div>
+        <div class="manga-item-container">
+            {% for item in hot %}
+            <div class="manga-item">
+                <div class="manga-item-image">
+                    <img src="https://meo.comick.pictures/{{ item.md_comics.md_covers[0].b2key }}" alt="{{ item.md_comics.title }} Cover Image">
+                </div>
+                <div class="manga-item-details">
+                    <h2 class="manga-item-title">{{ item.md_comics.title }}</h2>
+                    <p class="manga-item-chap">Chapter: {{ item.chap }}</p>
+                    <p class="manga-item-time">Created At: {{ item.created_at }}</p>
+                    <p class="manga-item-upcount">Up Count: {{ item.up_count }}</p>
+                    <a href="/read/{{ item.hid }}" class="read-button">Read</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src={{ url_for('static', filename='app.js') }}></script>
+    <script src="https://cdpn.io/cpe/boomboom/pen.js?key=pen.js-daf19fc7-80b7-d471-ac82-f5dd7d1b0775" crossorigin=""></script>
+</body>
+</html>
